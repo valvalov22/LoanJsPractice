@@ -1009,7 +1009,9 @@ function () {
 
           _this.showSlides(_this.slideIndex);
 
-          _this.page.classList.add('animated', 'slideInDown');
+          _this.slides[_this.slideIndex - 1].classList.remove('animated', 'slideInUp');
+
+          _this.slides[_this.slideIndex - 1].classList.add('animated', 'slideInDown');
         });
       });
       this.showSlides(this.slideIndex);

@@ -37,7 +37,8 @@ export default class Slider {
                 e.preventDefault();
                 this.slideIndex = 1;
                 this.showSlides(this.slideIndex);
-                this.page.classList.add('animated', 'slideInDown');
+                this.slides[this.slideIndex - 1].classList.remove('animated', 'slideInUp');
+                this.slides[this.slideIndex - 1].classList.add('animated', 'slideInDown');
             });
         });
 
