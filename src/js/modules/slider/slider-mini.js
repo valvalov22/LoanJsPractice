@@ -57,25 +57,27 @@ export default class MiniSlider extends Slider {
     }
 
     init() {
-        this.container.style.cssText = `
-            display: flex;
-            flex-wrap: wrap;
-            overflow: hidden;
-            align-items: flex-start;
-        `;
+        try {
+                this.container.style.cssText = `
+                display: flex;
+                flex-wrap: wrap;
+                overflow: hidden;
+                align-items: flex-start;
+            `;
 
-        this.bindTriggers();
-        this.decorizeSlides();
+            this.bindTriggers();
+            this.decorizeSlides();
 
-        if (this.autoplay) {
-            this.paused = setInterval(() => this.nextSlide(), 5000);
+            if (this.autoplay) {
+                this.paused = setInterval(() => this.nextSlide(), 5000);
 
-            this.slides[0].parentNode.addEventListener('mouseenter', () => {
-                clearInterval(this.paused);
-            });
-            this.slides[0].parentNode.addEventListener('mouseleave', () => {
-                setInterval(() => this.nextSlide(), 5000);
-            });
-        }
+                this.slides[0].parentNode.addEventListener('mouseenter', () => {
+                    clearInterval(this.paused);
+                });
+                this.slides[0].parentNode.addEventListener('mouseleave', () => {
+                    setInterval(() => this.nextSlide(), 5000);
+                });
+            }
+        } catch(e){}
     }
 }
